@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Animation</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        const box = document.getElementById('box');
+        let position = 0;
+        let direction = 1;
+
+        function moveBox() {
+            box.style.left = position + 'px';
+            
+            if (position >= 200 || position <= 0) {
+                direction *= -1;
+            }
+            
+            position += direction * 2;
+            
+            requestAnimationFrame(moveBox);
+        }
+
+        moveBox();
+    </script>
+</body>
+</html>
